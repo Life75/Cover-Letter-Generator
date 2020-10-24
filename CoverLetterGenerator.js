@@ -1,36 +1,42 @@
 //Creates a cover letter in the console with javascript
+//As of 10/23/2020
+//Create this as a website, coverletter website generator 
+var companyInfo = {
+    nameOfHiringManager: `default`,
+    companyAddress: `default`,
+    companyPhoneNumber: `default`,
+    companyEmail: `default`,
+};
+
+var aboutYourself = {
+    name: `Austyn Washington`,
+    role: `default`,
+    emailToContact: `default`,
+    phoneNumber: `(850)356-2024`,
 
 
-
-
-
-class CoverLetter {
-    constructor(userName) {
-        this.userName = userName;
-    }
-
-    companyInfo(nameOfHiringManager, companyAddress, companyNumber, companyEmail) {
-
-    }
-}
-
-let coverLetter = new CoverLetter("Austyn Washington");
+};
 
 
 var prompt = require('prompt');
-
 prompt.start();
 
-prompt.get(['nameOfHringManager', 'companyAddress', 'companyPhoneNumber', 'companyEmail'], function(err, result) {
-    console.log('Name of hiring manager: ' + result.nameOfHringManager);
-    console.log(`Company Address: ` + result.companyAddress);
-    console.log('Company Phone Number' + result.companyPhoneNumber);
-    console.log('Company Email: ' + result.companyEmail);
+prompt.get(['nameOfHiringManager', 'companyAddress', 'companyPhoneNumber', 'companyEmail', 'name', 'role', 'email', 'phoneNumber'], function(err, result) {
+    companyInfo.nameOfHiringManager = result.nameOfHiringManager;
+    companyInfo.companyAddress = result.companyAddress;
+    companyInfo.companyPhoneNumber = result.companyPhoneNumber;
+    companyInfo.companyEmail = result.companyEmail;
 
-    coverLetter.companyInfo(
-        result.nameOfHiringManager,
-        result.companyAddress,
-        result.companyPhoneNumber,
-        result.companyEmail
-    )
+    aboutYourself.name = result.name;
+    aboutYourself.role = result.role;
+    aboutYourself.emailToContact = result.email;
+    aboutYourself.phoneNumber = result.phoneNumber;
+
 });
+
+
+var coverLetter =
+    `Dear ` + companyInfo.nameOfHiringManager + "\n";
+
+
+console.log(companyInfo.nameOfHiringManager);
